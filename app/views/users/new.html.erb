@@ -1,0 +1,15 @@
+<h1>新規ユーザー作成</h1>
+<%= form_with model: @user, local: true do |form| %>
+  <div>
+    <%= form.label :name, '名前' %><br>
+    <%= form.text_field :name %>
+  </div>
+  <div>
+    <%= form.label :email, 'メールアドレス' %><br>
+    <%= form.email_field :email %>
+  </div>
+  <div>
+    <%= form.submit '作成' %>
+  </div>
+<% end %>
+<%= link_to '戻る', users_path %>

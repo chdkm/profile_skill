@@ -1,0 +1,11 @@
+<h1>新規スキルカテゴリ作成</h1>
+<%= form_with model: @skill_category, local: true do |form| %>
+  <div>
+    <%= form.label :name, 'カテゴリ名' %><br>
+    <%= form.text_field :name %>
+  </div>
+  <div>
+    <%= form.submit '作成' %>
+  </div>
+<% end %>
+<%= link_to '戻る', skill_categories_path %>

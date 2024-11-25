@@ -1,0 +1,23 @@
+<h1><%= @user.name %> のスキル一覧</h1>
+<table>
+  <thead>
+    <tr>
+      <th>カテゴリ</th>
+      <th>評価</th>
+      <th>操作</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @user_skills.each do |user_skill| %>
+      <tr>
+        <td><%= user_skill.skill_category.name %></td>
+        <td><%= user_skill.rating %></td>
+        <td>
+          <%= link_to '編集', edit_user_user_skill_path(@user, user_skill) %>
+          <%= link_to '削除', user_user_skill_path(@user, user_skill), method: :delete, data: { confirm: '本当に削除しますか？' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= link_to '新規スキル追加', new_user_user_skill_path(@user) %>

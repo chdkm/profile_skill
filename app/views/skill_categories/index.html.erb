@@ -1,0 +1,21 @@
+<h1>スキルカテゴリ一覧</h1>
+<table>
+  <thead>
+    <tr>
+      <th>名前</th>
+      <th>操作</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @skill_categories.each do |skill_category| %>
+      <tr>
+        <td><%= skill_category.name %></td>
+        <td>
+          <%= link_to '編集', edit_skill_category_path(skill_category) %> |
+          <%= link_to '削除', skill_category_path(skill_category), method: :delete, data: { confirm: '本当に削除しますか？' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= link_to '新規カテゴリ作成', new_skill_category_path %>
